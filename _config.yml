@@ -1,6 +1,11 @@
 name: Rakshan Shetty
 markdown: redcarpet
+
+sass:
+  sass_dir: ./assets/css
+
 exclude: ["node_modules",
   "gulpfile.js",
   "package.json",
-  "README.md"]
+  "README.md",
+  "./assets/css/main.css"]
