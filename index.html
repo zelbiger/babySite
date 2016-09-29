@@ -14,7 +14,7 @@
 
  <script>
      function process() {
-         var url = "http://clients.frontask.co.il/demo/Pages/Utilities/WebToLead.aspx?type=get&FirstName=" + document.getElementById("fname").value + "&LastName=" + document.getElementByID("lname").value + "&Email="+ document.getElementByID("lname").value+"&SystemID=65092f43-04f8-4816-b979-e58ac5c6fd82&ProcessDefinitionStepID=PPb5e5a061_2643_47fe_bec2_aac7cd1568f8&RedirectTo=http://cafe-flair.de";
+         var url = "http://clients.frontask.co.il/demo/Pages/Utilities/WebToLead.aspx?type=get&FirstName=" + document.getElementById("fname").value + "&LastName=" + document.getElementById("lname").value + "&Email="+ document.getElementById("email").value + "&SystemID=65092f43-04f8-4816-b979-e58ac5c6fd82&ProcessDefinitionStepID=PPb5e5a061_2643_47fe_bec2_aac7cd1568f8&RedirectTo=http://cafe-flair.de";
          console.log(url);
 	     window.location.replace(url);
      }
