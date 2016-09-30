@@ -32,7 +32,7 @@
         'Email': Email,
         'SystemID': SystemID,
         'ProcessDefinitionStepID': ProcessDefinitionStepID,
-        'RedirectTo': RedirectTo,
+      //  'RedirectTo': RedirectTo,
     };
     $.ajax({
             type: "POST",
@@ -42,11 +42,11 @@
             statusCode: {
                     0: function() {
                             console.log("unknown");
-                            window.location.href = "contact_confirm/index.html";
+                            window.location.href = "index.html";
                     },
                     200: function() {
                             console.log("success");
-                            window.location.href = "contact_confirm/index.html";
+                            window.location.href = "index2.html";
                     }
             }
     });
