@@ -18,8 +18,11 @@
 <script>
 	$('#contact-form-submit').click(function(e) {
     e.preventDefault();
-    var FirstName = $('#FirstName').val();
-    var LastName = $('#LastName').val();
+    var Name = $('#FirstName').val();
+var FirstName = Name.split(' ').slice(0, -1).join(' ');
+var LastName = Name.split(' ').slice(-1).join(' ');
+ //   var FirstName = $('#FirstName').val();
+ //   var LastName = $('#LastName').val();
     var Email = $('#Email').val();
     var SystemID = $('#SystemID').val();
     var ProcessDefinitionStepID = $('#ProcessDefinitionStepID').val();
@@ -32,26 +35,10 @@
         'Email': Email,
         'SystemID': SystemID,
         'ProcessDefinitionStepID': ProcessDefinitionStepID,
-   //     'RedirectTo': RedirectTo,
+        'RedirectTo': RedirectTo,
     };
-   // var params = jQuery.param( data );
-  //  window.location = url+params;
-   $.ajax({
-            type: "POST",
-            url: url,
-            dataType: "json",
-            data: data,
-            statusCode: {
-                    0: function() {
-                            console.log("unknown");
-                            window.location.href = "contact_confirm/index.html";
-                    },
-                    200: function() {
-                            console.log("success");
-                            window.location.href = "contact_confirm/index.html";
-                    }
-            }
-    });
+    var params = jQuery.param( data );
+    window.location = url+params;
 });
 	</script>
     </body>
