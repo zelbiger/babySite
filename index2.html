@@ -6,14 +6,51 @@
 <body dir='rtl'>
 
 <form action="http://clients.frontask.co.il/demo/Pages/Utilities/WebToLead.aspx?type=form" method="post">
-   <input type="text" name="FirstName" id="fname" placeholder="first name" />
-   <input type="text" name="LastName" id="lname" placeholder="last name" />
-   <input type="email" name="Email" id="email" placeholder="email" />
+   <input type="text" name="FirstName" id="FirstName" placeholder="first name" />
+   <input type="text" name="LastName" id="LastName" placeholder="last name" />
+   <input type="email" name="Email" id="Email" placeholder="email" />
    <button type="submit" class="btn btn-default" id="contact-form-submit">Submit</button>
-   <input type='hidden' name='SystemID' value='65092f43-04f8-4816-b979-e58ac5c6fd82' />
-   <input type='hidden' name='ProcessDefinitionStepID' value='PPb5e5a061_2643_47fe_bec2_aac7cd1568f8' /> 
-   <input type='hidden' name='RedirectTo' value='http://www.kukukiki.tk' />
+   <input type='hidden' name='SystemID' id="SystemID" value='65092f43-04f8-4816-b979-e58ac5c6fd82' />
+   <input type='hidden' name='ProcessDefinitionStepID' id="ProcessDefinitionStepID" value='PPb5e5a061_2643_47fe_bec2_aac7cd1568f8' /> 
+   <input type='hidden' name='RedirectTo' id="RedirectTo" value='http://www.kukukiki.tk' />
  </form>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+	$('#contact-form-submit').click(function(e) {
+    e.preventDefault();
+    var FirstName = $('#FirstName').val();
+    var LastName = $('#LastName').val();
+    var Email = $('#Email').val();
+    var SystemID = $('#SystemID').val();
+    var ProcessDefinitionStepID = $('#ProcessDefinitionStepID').val();
+    var RedirectTo = $('#RedirectTo').val();
+    // data validation code here
+    var url = "http://clients.frontask.co.il/demo/Pages/Utilities/WebToLead.aspx?type=get";
+    var data = {
+        'FirstName': FirstName,
+        'LastName': LastName,
+        'Email': Email,
+        'SystemID': SystemID,
+        'ProcessDefinitionStepID': ProcessDefinitionStepID,
+        'RedirectTo': RedirectTo,
+    };
+    $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: data,
+            statusCode: {
+                    0: function() {
+                            console.log("unknown");
+                            window.location.href = "contact_confirm/index.html";
+                    },
+                    200: function() {
+                            console.log("success");
+                            window.location.href = "contact_confirm/index.html";
+                    }
+            }
+    });
+});
+	</script>
     </body>
 </html>
