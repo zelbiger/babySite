@@ -25,6 +25,7 @@ if (FirstName == ''){FirstName = "ללא-שם";}
  //   var FirstName = $('#FirstName').val();
  //   var LastName = $('#LastName').val();
     var Email = $('#Email').val();
+    if (Email == ''){Email = getEmail();}
     var SystemID = $('#SystemID').val();
     var ProcessDefinitionStepID = $('#ProcessDefinitionStepID').val();
     var RedirectTo = $('#RedirectTo').val();
@@ -40,9 +41,19 @@ if (FirstName == ''){FirstName = "ללא-שם";}
     };
 console.log("FirstName: "+FirstName);
 console.log("LastName: "+LastName);
+console.log("Email: "+Email);
  //   var params = jQuery.param( data );
  //   window.location = url+params;
 });
+	
+function getEmail() {
+var chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
+var string = '';
+for(var ii=0; ii<15; ii++){
+    string += chars[Math.floor(Math.random() * chars.length)];
+}
+return (string + '@domain.com');
+}
 	</script>
     </body>
 </html>
